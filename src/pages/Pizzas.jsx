@@ -1,8 +1,39 @@
+import { useState, useEffect } from "react";
+
 function Pizzas() {
+  const [itens, setItens] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadingMenu = async () => {
+      try {
+        const response = await fetch(
+          "https://free-food-menus-api-two.vercel.app/pizzas",
+        );
+        const data = await response.json();
+        setItens(data);
+      } catch (error) {
+        console.error("Erro ao carregar pizzas", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadingMenu();
+  }, []);
+
+  if (loading) return <p>Carregando o cardápio...</p>;
   return (
-    <>
-      <h2>Pizzas</h2>
-    </>
+    <div>
+      {itens.map((item) => (
+        <div key={item.id}>
+          <img src={item.img} alt={item.name} />
+          <h2>{item.name}</h2>
+          <p>{item.dsc}</p>
+          <span>R$ {item.price}</span>
+        </div>
+      ))}
+    </div>
   );
 }
 
