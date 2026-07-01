@@ -1,7 +1,13 @@
+import Burgers from "./Burgers.jsx";
+import Pizzas from "./Pizzas.jsx";
+import Drinks from "./Drinks.jsx";
+
 function Home() {
   return (
     <>
-      <h1>Todos os produtos</h1>
+      <Burgers />
+      <Pizzas />
+      <Drinks />
     </>
   );
 }
