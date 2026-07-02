@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "../pages/styles.module.css";
 
 function Burgers() {
   const [itens, setItens] = useState([]);
@@ -27,7 +28,7 @@ function Burgers() {
     <div>
       {itens.map((item) => (
         <div key={item.id}>
-          <img src={item.img} alt={item.name} />
+          <img src={item.img} alt={item.name} className={styles.img} />
           <h2>{item.name}</h2>
           <p>{item.dsc}</p>
           <span>R$ {item.price}</span>

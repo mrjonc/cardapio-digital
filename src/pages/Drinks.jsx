@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "../pages/styles.module.css";
 
 function Drinks() {
   const [itens, setItens] = useState([]);
@@ -25,14 +26,21 @@ function Drinks() {
   if (loading) return <p>Carregando o cardápio...</p>;
   return (
     <div>
+      <hr className={styles.division} />
       {itens.map((item) => (
-        <div key={item.id}>
-          <img src={item.img} alt={item.name} />
-          <h2>{item.name}</h2>
-          <p>{item.dsc}</p>
-          <span>R$ {item.price}</span>
+        <div key={item.id} className={styles.item}>
+          <img src={item.img} alt={item.name} className={styles.img} />
+
+          <div className={styles.container}>
+            <h2>{item.name}</h2>
+            <p>{item.dsc}</p>
+            <span>R${item.price},00</span>
+          </div>
+
+          <hr className={styles.division} />
         </div>
       ))}
+      x
     </div>
   );
 }
