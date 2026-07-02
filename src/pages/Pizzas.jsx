@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "../pages/styles.module.css";
 
 function Pizzas() {
   const [itens, setItens] = useState([]);
