@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "../pages/styles.module.css";
+import { FaPlus } from "react-icons/fa6";
 
 function Burgers() {
   const [itens, setItens] = useState([]);
@@ -26,14 +27,28 @@ function Burgers() {
   if (loading) return <p>Carregando o cardápio...</p>;
   return (
     <div>
-      {itens.map((item) => (
-        <div key={item.id}>
-          <img src={item.img} alt={item.name} className={styles.img} />
-          <h2>{item.name}</h2>
-          <p>{item.dsc}</p>
-          <span>R$ {item.price}</span>
-        </div>
-      ))}
+      <div className={styles.gridContainer}>
+        {itens.map((item) => (
+          <div key={item.id} className={styles.itemWrapper}>
+            <div className={styles.itemContainer}>
+              <img src={item.img} alt={item.name} className={styles.img} />
+
+              <div className={styles.contentBlock}>
+                <div className={styles.titleRow}>
+                  <h2>{item.name}</h2>
+                  <span>R${item.price}</span>
+                </div>
+                <div className={styles.informations}>
+                  <p>{item.dsc}</p>
+                  <button className={styles.btn}>
+                    <FaPlus />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
