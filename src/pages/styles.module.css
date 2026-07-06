@@ -1,50 +1,54 @@
 body {
-  padding: 0 20px;
+  background-color: #f5f2f2;
+  padding: 0 20px 40px 20px;
 }
 
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 24px;
   width: 100%;
-  margin-top: 20px;
-}
-
-.itemWrapper {
-  width: 100%;
-  margin-bottom: 20px;
+  margin-top: 30px;
 }
 
 .itemContainer {
-  align-items: flex-start;
+  align-items: stretch;
   display: flex;
   gap: 16px;
   width: 100%;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 1rem;
+  padding: 12px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.02);
 }
 
 .contentBlock {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  justify-content: space-between;
 }
 
 .titleRow {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .titleRow h2 {
   margin: 0;
-  font-size: 1.9rem;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  font-weight: 600;
 }
 
 .titleRow span {
-  font-weight: bold;
+  font-weight: 700;
   white-space: nowrap;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  color: #2e7d32;
 }
 
 .description {
@@ -53,10 +57,10 @@ body {
 }
 
 .img {
-  width: 170px;
-  height: 170px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .division {
@@ -69,16 +73,27 @@ body {
 .informations {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.informations p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
 }
 
 .btn {
   cursor: pointer;
   padding: 10px;
   background-color: #ffd700;
+  border-color: #bbb7b7;
   border-radius: 5px;
-  transition: color 1s ease;
+  transition: background-color 0.6s ease;
 }
 
 .btn:hover {
-  background-color: #b19707;
+  background-color: #d1b40d;
 }
