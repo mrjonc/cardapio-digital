@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "../pages/styles.module.css";
+import { FaPlus } from "react-icons/fa6";
 
 function Drinks() {
   const [itens, setItens] = useState([]);
@@ -26,21 +27,28 @@ function Drinks() {
   if (loading) return <p>Carregando o cardápio...</p>;
   return (
     <div>
-      <hr className={styles.division} />
-      {itens.map((item) => (
-        <div key={item.id} className={styles.item}>
-          <img src={item.img} alt={item.name} className={styles.img} />
+      <div className={styles.gridContainer}>
+        {itens.map((item) => (
+          <div key={item.id} className={styles.itemWrapper}>
+            <div className={styles.itemContainer}>
+              <img src={item.img} alt={item.name} className={styles.img} />
 
-          <div className={styles.container}>
-            <h2>{item.name}</h2>
-            <p>{item.dsc}</p>
-            <span>R${item.price},00</span>
+              <div className={styles.contentBlock}>
+                <div className={styles.titleRow}>
+                  <h2>{item.name}</h2>
+                  <span>R${item.price}</span>
+                </div>
+                <div className={styles.informations}>
+                  <p>{item.dsc}</p>
+                  <button className={styles.btn}>
+                    <FaPlus />
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <hr className={styles.division} />
-        </div>
-      ))}
-      x
+        ))}
+      </div>
     </div>
   );
 }
