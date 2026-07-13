@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { cartContext } from "../Components/cart/Cart.jsx";
 import styles from "../pages/styles.module.css";
 import { FaPlus } from "react-icons/fa6";
 
 function Burgers() {
   const [itens, setItens] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { addToCard } = useContext(cartContext);
 
   useEffect(() => {
     const loadingMenu = async () => {
@@ -40,7 +42,10 @@ function Burgers() {
                 </div>
                 <div className={styles.informations}>
                   <p>{item.dsc}</p>
-                  <button className={styles.btn}>
+                  <button
+                    className={styles.btn}
+                    onClick={() => addToCard(item)}
+                  >
                     <FaPlus />
                   </button>
                 </div>
