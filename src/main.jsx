@@ -8,6 +8,7 @@ import Home from "./pages/Home.jsx";
 import Burgers from "./pages/Burgers.jsx";
 import Pizzas from "./pages/Pizzas.jsx";
 import Drinks from "./pages/Drinks.jsx";
+import CartProvider from "./Components/cart/Cart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
   </StrictMode>,
 );
